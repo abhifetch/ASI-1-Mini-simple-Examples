@@ -1,17 +1,16 @@
 import requests
 from uagents import Agent, Context
 import os
+import json
 from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
 
-# Initialize the agent
 agent = Agent(
     name="AI_Language_Tutor",
-    seed="language_learning_secret",
-    description="🌍 AI-powered language tutor that helps with translations, grammar corrections, and pronunciation tips! Just ask how to say something in another language. 🚀",
-    discoverable=True
+    port=8000,  # You can change this to any available port
+    endpoint="http://localhost:8000/submit"
 )
 
 def get_language_help(query: str, target_language: str = "Spanish") -> str:
